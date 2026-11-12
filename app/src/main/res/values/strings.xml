@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">RoomData</string>
+    <string name="app_name">APLIKASI SISWA</string>
 
     <!-- Teks untuk Navigasi / Top Bar -->
-    <string name="entry_siswa">Entry Siswa</string>
+    <string name="entry_siswa">Tambah Siswa</string>
     <string name="back">Kembali</string>
 
     <!-- Teks untuk Halaman Home -->
