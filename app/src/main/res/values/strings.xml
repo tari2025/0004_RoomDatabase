@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">RoomData</string>
+
+    <!-- Teks untuk Navigasi / Top Bar -->
+    <string name="entry_siswa">Entry Siswa</string>
+    <string name="back">Kembali</string>
+
+    <!-- Teks untuk Halaman Home -->
+    <string name="deskripsi_no_item">Belum ada data siswa.\nSilakan tambahkan data terlebih dahulu.</string>
+
+    <!-- Label Form Input Siswa -->
+    <string name="nama">Nama</string>
+    <string name="alamat">Alamat</string>
+    <string name="telpon">Telpon</string>
+    <string name="required_field">* Wajib diisi</string>
+
+    <!-- Tombol -->
+    <string name="btn_submit">Simpan</string>
 </resources>
