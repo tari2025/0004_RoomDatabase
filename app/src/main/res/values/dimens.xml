@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Digunakan untuk padding umum pada layar dan komponen (16dp) -->
+    <dimen name="padding_medium">16dp</dimen>
+
+    <!-- Digunakan untuk padding yang lebih besar seperti jarak antar form (24dp) -->
+    <dimen name="padding_large">24dp</dimen>
+
+    <!-- Digunakan untuk jarak antar item di LazyColumn / jarak kecil (8dp) -->
+    <dimen name="padding_small">8dp</dimen>
+</resources>
