@@ -1,21 +1,18 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    // HAPUS alias kotlin.android karena AGP 9 sudah punya Kotlin bawaan
     alias(libs.plugins.kotlin.compose)
-    //alias(libs.plugins.ksp)
-
+    id("com.google.devtools.ksp") // JANGAN dikomentari, ini wajib untuk Room
 }
 
 android {
     namespace = "com.example.roomdata"
-    compileSdk {
-        version = release(37)
-    }
+    compileSdk = 35 // Ubah dari { version = release(37) } karena SDK 37 belum stabil
 
     defaultConfig {
         applicationId = "com.example.roomdata"
         minSdk = 24
-        targetSdk = 37
+        targetSdk = 35 // Ubah dari 37
         versionCode = 1
         versionName = "1.0"
 
@@ -24,15 +21,21 @@ android {
 
     buildTypes {
         release {
-            optimization {
-                enable = false
-            }
+            // Ubah dari optimization { enable = false }
+            isMinifyEnabled = false
+            isShrinkResources = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     buildFeatures {
         compose = true
     }
@@ -47,17 +50,18 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+
     implementation(libs.bundles.room)
-    //item
-    implementation(libs.compose.icons)
-    //room
-    implementation(libs.compose.room)
     ksp(libs.room.compiler)
-    //viuw
+
+    // Icons & Navigation
+    implementation(libs.compose.icons)
+    implementation(libs.navigation.compose)
+
+    // ViewModel & Lifecycle Compose
     implementation(libs.lifecycle.viewmodel.compose)
     implementation(libs.lifecycle.runtime.compose)
-    //navigasi
-    implementation(libs.navigation.compose)
+
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
@@ -65,7 +69,4 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
-
-
-
 }
