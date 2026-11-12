@@ -1,19 +1,19 @@
 plugins {
     alias(libs.plugins.android.application)
-    // HAPUS alias kotlin.android karena AGP 9 sudah punya Kotlin bawaan
     alias(libs.plugins.kotlin.compose)
-    id("com.google.devtools.ksp")
-    alias(libs.plugins.kotlin.android) // JANGAN dikomentari, ini wajib untuk Room
+    alias(libs.plugins.ksp)
 }
 
 android {
     namespace = "com.example.roomdata"
-    compileSdk = 35 // Ubah dari { version = release(37) } karena SDK 37 belum stabil
+    compileSdk {
+        version = release(37)
+    }
 
     defaultConfig {
         applicationId = "com.example.roomdata"
         minSdk = 24
-        targetSdk = 35 // Ubah dari 37
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -22,21 +22,15 @@ android {
 
     buildTypes {
         release {
-            // Ubah dari optimization { enable = false }
-            isMinifyEnabled = false
-            isShrinkResources = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            optimization {
+                enable = false
+            }
         }
     }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-
     buildFeatures {
         compose = true
     }
@@ -46,23 +40,23 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.runtime)
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
-
+    //icons
+    implementation(libs.compose.icons)
+    //room
     implementation(libs.bundles.room)
     ksp(libs.room.compiler)
-
-    // Icons & Navigation
-    implementation(libs.compose.icons)
-    implementation(libs.navigation.compose)
-
-    // ViewModel & Lifecycle Compose
+    //viewmodel
     implementation(libs.lifecycle.viewmodel.compose)
     implementation(libs.lifecycle.runtime.compose)
 
+    //Navigasi
+    implementation(libs.navigation.compose)
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)

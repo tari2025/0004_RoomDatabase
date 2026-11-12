@@ -1,5 +1,11 @@
 package com.example.roomdata.viewmodel
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.lifecycle.ViewModel
+import com.example.roomdata.repositori.RepositoriSiswa
+import com.example.roomdata.room.Siswa
 class EntryViewModel(private val repositoriSiswa: RepositoriSiswa) : ViewModel() {
 
     /**

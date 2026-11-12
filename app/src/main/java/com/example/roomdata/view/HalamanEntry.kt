@@ -1,5 +1,37 @@
 package com.example.roomdata.view
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.Divider
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.roomdata.R
+import com.example.roomdata.uicontroller.DestinasiNavigasi
+import com.example.roomdata.uicontroller.SiswaTopAppBar
+import com.example.roomdata.viewmodel.DetailSiswa
+import com.example.roomdata.viewmodel.EntryViewModel
+import com.example.roomdata.viewmodel.PenyediaViewModel
+import com.example.roomdata.viewmodel.UIStateSiswa
+import kotlinx.coroutines.launch
+
 object DestinasiEntry : DestinasiNavigasi {
     override val route = "item_entry"
     override val titleRes = R.string.entry_siswa
@@ -44,7 +76,7 @@ fun EntrySiswaScreen(
 @Composable
 fun EntrySiswaBody(
     uiStateSiswa: UIStateSiswa,
-    onSiswaValueChange: (DetailSiswa) -> Unit,
+    onSiswaValueChange: (DetailSiswa) -> Unit, // Menggunakan DetailSiswa
     onSaveClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -71,9 +103,9 @@ fun EntrySiswaBody(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FormInputSiswa(
-    detailSiswa: DetailSiswa,
+    detailSiswa: DetailSiswa, // Menggunakan DetailSiswa
     modifier: Modifier = Modifier,
-    onValueChange: (DetailSiswa) -> Unit = {},
+    onValueChange: (DetailSiswa) -> Unit = {}, // Menggunakan DetailSiswa
     enabled: Boolean = true
 ) {
     Column(

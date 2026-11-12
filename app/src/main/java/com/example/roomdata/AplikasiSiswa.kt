@@ -1,4 +1,8 @@
-package com.example.roomdata.viewmodel
+package com.example.roomdata
+
+import android.app.Application
+import com.example.roomdata.repositori.ContainerApp
+import com.example.roomdata.repositori.ContainerDataApp
 
 class AplikasiSiswa : Application() {
     /**

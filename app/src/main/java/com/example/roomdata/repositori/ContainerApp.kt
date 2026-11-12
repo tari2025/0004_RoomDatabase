@@ -1,8 +1,12 @@
 package com.example.roomdata.repositori
 
+import android.content.Context
+import com.example.roomdata.room.DatabaseSiswa
+
 
 interface ContainerApp {
-    val repositoriSiswa : RepositoriSiswa
+    val repositoriSiswa :
+            RepositoriSiswa
 }
 
 class ContainerDataApp(private val context: Context): ContainerApp{

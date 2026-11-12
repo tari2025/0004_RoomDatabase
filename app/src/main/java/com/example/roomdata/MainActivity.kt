@@ -9,22 +9,21 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.example.roomdata.ui.theme.RoomDataTheme
-// Pastikan untuk meng-import SiswaApp dari package yang sesuai
-// Jika PetaNavigasi.kt berada di package uicontroller:
-// import com.example.roomdata.uicontroller.SiswaApp
+import com.example.roomdata.uicontroller.SiswaApp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Opsional: enableEdgeToEdge() membuat aplikasi menggambar di belakang status bar
         enableEdgeToEdge()
         setContent {
             RoomDataTheme {
-                // Menggunakan Surface agar background mengikuti tema
+                // Surface digunakan sebagai container utama dengan warna background dari tema
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    // Memanggil navigasi utama aplikasi Anda
+                    // Memanggil fungsi navigasi utama aplikasi
                     SiswaApp()
                 }
             }
