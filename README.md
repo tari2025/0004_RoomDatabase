@@ -1,12 +1,9 @@
 hasil coding
-
 </br>
-<img width="212" height="437" alt="{D528D784-C44D-4B11-B861-62BEE23A3748}" src="https://github.com/user-attachments/assets/4fce7422-97b0-4426-8b82-433015f67c1d" />
-
+<img width="219" height="443" alt="{A568DEE9-86A5-4B74-9551-8F0CEC0BEEAC}" src="https://github.com/user-attachments/assets/dc60dc4e-7d68-4276-ba12-12c270dd2eab" />
 </br>
 
-<img width="224" height="435" alt="{D156DB92-C29F-497C-9CAC-A5A2B4EFC548}" src="https://github.com/user-attachments/assets/b7259068-ab9a-41ec-a07d-ea5396cfae67" />
+<img width="210" height="434" alt="{C81C4C33-E043-460E-8356-E1E952B923EE}" src="https://github.com/user-attachments/assets/75aaee3a-887c-4be9-9e83-4890849e33c1" />
 
 </br>
-<img width="227" height="431" alt="{B075D00C-9E55-469F-9ED4-A6E2238D209F}" src="https://github.com/user-attachments/assets/e6880bea-af79-4fe4-9986-4a78518a806d" />
-
+<img width="224" height="439" alt="{3DBD7B19-DDB1-48AD-B124-CF2F7C147AF6}" src="https://github.com/user-attachments/assets/0f42c0b8-66da-402b-b5d0-13ffcf23304a" />
