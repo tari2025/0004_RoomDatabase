@@ -2,7 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     // HAPUS alias kotlin.android karena AGP 9 sudah punya Kotlin bawaan
     alias(libs.plugins.kotlin.compose)
-    id("com.google.devtools.ksp") // JANGAN dikomentari, ini wajib untuk Room
+    id("com.google.devtools.ksp")
+    alias(libs.plugins.kotlin.android) // JANGAN dikomentari, ini wajib untuk Room
 }
 
 android {
