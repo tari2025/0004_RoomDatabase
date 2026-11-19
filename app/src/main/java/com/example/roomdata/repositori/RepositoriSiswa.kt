@@ -18,3 +18,7 @@ fun getAllSiswaStream(id: int): Flow<Siswa?>
 
 suspend fun deleteSiswa(Siswa: Siswa)
 
+suspend fun updateSiswa(siswa: Siswa)
+
+}
+
