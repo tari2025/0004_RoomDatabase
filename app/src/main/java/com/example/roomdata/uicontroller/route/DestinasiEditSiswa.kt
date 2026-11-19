@@ -1,5 +1,7 @@
 package com.example.roomdata.uicontroller.route
 
+import com.example.example.myroomsiswa.R
+
 object DestinasiEditSiswa : DestinasiNavigasi {
     override val route = "item_edit"
 
