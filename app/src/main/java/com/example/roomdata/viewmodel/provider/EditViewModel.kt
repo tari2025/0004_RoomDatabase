@@ -7,7 +7,12 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.roomdata.repositori.RepositoriSiswa
+import com.example.roomdata.uicontroller.route.DestinasiEditSiswa
 import com.example.roomdata.viewmodel.DetailSiswa
+import com.example.roomdata.viewmodel.UIStateSiswa
+import com.example.roomdata.viewmodel.toDetailSiswa
+import com.example.roomdata.viewmodel.toSiswa
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.launch
 
 class EditViewModel(
@@ -15,33 +20,39 @@ class EditViewModel(
     private val repositoriSiswa: RepositoriSiswa
 ) : ViewModel() {
 
-    var uiStateSiswa by mutableStateOf(value = UiStateSiswa())
+    var uiStateSiswa by mutableStateOf(UIStateSiswa())
         private set
 
-    private val idSiswa: Int = checkNotNull(savedStateHandle[DestinasiDetailSiswa.itemIdArg])
+    private val siswaId: Int = checkNotNull(savedStateHandle[DestinasiEditSiswa.itemIdArg])
 
     init {
         viewModelScope.launch {
-            uiStateSiswa = repositoriSiswa.getSiswaStream(idSiswa)
+            repositoriSiswa.getSiswa(siswaId)
                 .filterNotNull()
-                .first()
-                .toUiStateSiswa(isEntryValid = true)
+                .collect { siswa ->
+                    uiStateSiswa = UIStateSiswa(
+                        detailSiswa = siswa.toDetailSiswa(),
+                        isEntryValid = validasiInput(siswa.toDetailSiswa())
+                    )
+                }
         }
     }
 
-    fun updateUiState(detailSiswa: DetailSiswa) {
-        uiStateSiswa =
-            UiStateSiswa(detailSiswa = detailSiswa, isEntryValid = validasiInput(uiState = detailSiswa))
-    }
-
-    private fun validasiInput(uiState: DetailSiswa = uiStateSiswa.detailSiswa): Boolean {
-        return with(receiver = uiState) {
+    private fun validasiInput(detailSiswa: DetailSiswa = uiStateSiswa.detailSiswa): Boolean {
+        return with(detailSiswa) {
             nama.isNotBlank() && alamat.isNotBlank() && telpon.isNotBlank()
         }
     }
 
+    fun updateUiState(detailSiswa: DetailSiswa) {
+        uiStateSiswa = UIStateSiswa(
+            detailSiswa = detailSiswa,
+            isEntryValid = validasiInput(detailSiswa)
+        )
+    }
+
     suspend fun updateSiswa() {
-        if (validasiInput(uiStateSiswa.detailSiswa)) {
+        if (validasiInput()) {
             repositoriSiswa.updateSiswa(uiStateSiswa.detailSiswa.toSiswa())
         }
     }

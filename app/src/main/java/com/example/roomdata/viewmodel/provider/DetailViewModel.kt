@@ -4,8 +4,13 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.roomdata.repositori.RepositoriSiswa
+import com.example.roomdata.uicontroller.route.DestinasiDetailSiswa
+import com.example.roomdata.viewmodel.DetailSiswa
+import com.example.roomdata.viewmodel.toDetailSiswa
+import com.example.roomdata.viewmodel.toSiswa
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 
@@ -17,7 +22,7 @@ class DetailViewModel(
     private val idSiswa: Int = checkNotNull(savedStateHandle[DestinasiDetailSiswa.itemIdArg])
 
     val uiDetailState: StateFlow<DetailSiswaUiState> =
-        repositoriSiswa.getSiswaStream(idSiswa)
+        repositoriSiswa.getSiswa(idSiswa)
             .filterNotNull()
             .map {
                 DetailSiswaUiState(detailSiswa = it.toDetailSiswa())
@@ -36,7 +41,6 @@ class DetailViewModel(
     }
 }
 
-//UI STATE FOR ITEMDETAIS SCREEN
 data class DetailSiswaUiState(
     val detailSiswa: DetailSiswa = DetailSiswa()
 )

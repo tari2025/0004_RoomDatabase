@@ -8,7 +8,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -24,18 +24,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.roomdata.R
-import com.example.roomdata.uicontroller.DestinasiNavigasi
 import com.example.roomdata.uicontroller.SiswaTopAppBar
+import com.example.roomdata.uicontroller.route.DestinasiEntry
 import com.example.roomdata.viewmodel.DetailSiswa
 import com.example.roomdata.viewmodel.EntryViewModel
 import com.example.roomdata.viewmodel.PenyediaViewModel
 import com.example.roomdata.viewmodel.UIStateSiswa
 import kotlinx.coroutines.launch
-
-object DestinasiEntry : DestinasiNavigasi {
-    override val route = "item_entry"
-    override val titleRes = R.string.entry_siswa
-}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -52,6 +47,7 @@ fun EntrySiswaScreen(
             SiswaTopAppBar(
                 title = stringResource(DestinasiEntry.titleRes),
                 canNavigateBack = true,
+                navigateUp = navigateBack,
                 scrollBehavior = scrollBehavior
             )
         }
@@ -76,7 +72,7 @@ fun EntrySiswaScreen(
 @Composable
 fun EntrySiswaBody(
     uiStateSiswa: UIStateSiswa,
-    onSiswaValueChange: (DetailSiswa) -> Unit, // Menggunakan DetailSiswa
+    onSiswaValueChange: (DetailSiswa) -> Unit,
     onSaveClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -103,9 +99,9 @@ fun EntrySiswaBody(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FormInputSiswa(
-    detailSiswa: DetailSiswa, // Menggunakan DetailSiswa
+    detailSiswa: DetailSiswa,
     modifier: Modifier = Modifier,
-    onValueChange: (DetailSiswa) -> Unit = {}, // Menggunakan DetailSiswa
+    onValueChange: (DetailSiswa) -> Unit = {},
     enabled: Boolean = true
 ) {
     Column(
@@ -143,7 +139,7 @@ fun FormInputSiswa(
                 modifier = Modifier.padding(start = dimensionResource(id = R.dimen.padding_medium))
             )
         }
-        Divider(
+        HorizontalDivider(
             thickness = dimensionResource(R.dimen.padding_small),
             modifier = Modifier.padding(bottom = dimensionResource(id = R.dimen.padding_medium))
         )

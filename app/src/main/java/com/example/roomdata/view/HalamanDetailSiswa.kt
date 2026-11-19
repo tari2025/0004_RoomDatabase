@@ -1,4 +1,4 @@
-package com.example.roomdata.view // Sesuaikan dengan letak folder Anda
+package com.example.roomdata.view
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
@@ -35,12 +35,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.roomdata.R
-
-// Sesuaikan import di bawah ini dengan lokasi file Anda yang sebenarnya
+import com.example.roomdata.room.Siswa
 import com.example.roomdata.uicontroller.SiswaTopAppBar
 import com.example.roomdata.uicontroller.route.DestinasiDetailSiswa
+import com.example.roomdata.viewmodel.PenyediaViewModel
+import com.example.roomdata.viewmodel.provider.DetailSiswaUiState
 import com.example.roomdata.viewmodel.provider.DetailViewModel
-import com.example.roomdata.viewmodel.provider.PenyediaViewModel
+import com.example.roomdata.viewmodel.toSiswa
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)

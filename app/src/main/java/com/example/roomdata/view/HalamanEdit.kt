@@ -15,7 +15,6 @@ import com.example.roomdata.viewmodel.provider.EditViewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
-
 @Composable
 fun EditSiswaScreen(
     navigateBack: () -> Unit,
@@ -36,6 +35,7 @@ fun EditSiswaScreen(
         val coroutineScope = rememberCoroutineScope()
         EntrySiswaBody(
             uiStateSiswa = viewModel.uiStateSiswa,
+            onSiswaValueChange = viewModel::updateUiState,
             onSaveClick = {
                 coroutineScope.launch {
                     viewModel.updateSiswa()

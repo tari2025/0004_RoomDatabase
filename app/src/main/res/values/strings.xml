@@ -3,6 +3,7 @@
 
     <!-- Teks untuk Navigasi / Top Bar -->
     <string name="entry_siswa">Tambah Siswa</string>
+    <string name="detail_siswa">Detail Siswa</string>
     <string name="back">Kembali</string>
 
     <!-- Teks untuk Halaman Home -->
