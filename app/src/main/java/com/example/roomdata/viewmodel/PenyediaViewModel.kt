@@ -30,9 +30,13 @@ initializer {
 //edit : tambah initializer untuk detailViewModel dan editViewmodel
 
 initializer {
-   DetailViewModel(savedStateHandle = this.createSavedStateHandle(),
-        aplikasiSiswa().container.repositoriSiswa)
+    DetailViewModel(savedStateHandle = this.createSavedStateHandle(),
+        aplikasiSiswa().container.repositoriSiswa
+    )
 
-    initializer
-    EditViewModel(savedStateHandle = this.createSavedStateHandle(),
-        aplikasiSiswa().container.repositoriSiswa)
+    initializer {
+        EditViewModel(savedStateHandle = this.createSavedStateHandle(),
+            aplikasiSiswa().container.repositoriSiswa
+        )
+    }
+}
