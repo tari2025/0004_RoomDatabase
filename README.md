@@ -20,9 +20,11 @@ update data:
 </br>
 hapus
 </br>
-<img width="152" height="261" alt="{F28C36A0-8F15-4C6E-97B7-F9745C33A92A}" src="https://github.com/user-attachments/assets/e7ccd064-9cae-47f8-81a9-9326f13533f1" />
-tampilan detail siswa:
+tampilan detail siswa: </br>
 <img width="149" height="248" alt="{239993A2-C566-4B47-B4C6-7CFCD134C5B1}" src="https://github.com/user-attachments/assets/ed0ca0b1-6cdf-47b2-8e2e-364815fcf433" />
 
+
+</br>
+<img width="152" height="261" alt="{F28C36A0-8F15-4C6E-97B7-F9745C33A92A}" src="https://github.com/user-attachments/assets/e7ccd064-9cae-47f8-81a9-9326f13533f1" />
 
 
