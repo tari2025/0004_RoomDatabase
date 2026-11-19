@@ -16,4 +16,26 @@
 
     <!-- Tombol -->
     <string name="btn_submit">Simpan</string>
+
+    <!-- ========================================== -->
+    <!-- TAMBAHAN UNTUK HALAMAN DETAIL & EDIT       -->
+    <!-- ========================================== -->
+
+    <!-- Digunakan di Halaman Detail -->
+    <string name="update">Update</string>
+    <string name="delete">Hapus</string>
+    <string name="attention">Perhatian</string>
+    <string name="rich_delete">Apakah Anda yakin ingin menghapus data ini?</string>
+    <string name="no">Tidak</string>
+    <string name="yes">Ya</string>
+
+    <!-- Label di dalam Card Detail (pakai angka 1 karena nama/alamat/telpon sudah dipakai di form) -->
+    <string name="nama1">Nama</string>
+    <string name="alamat1">Alamat</string>
+    <string name="telpon1">Telepon</string>
+
+    <!-- Teks untuk Halaman Edit (Tambahan agar aman) -->
+    <string name="edit_siswa">Edit Siswa</string>
+    <string name="btn_update">Perbarui</string>
+
 </resources>

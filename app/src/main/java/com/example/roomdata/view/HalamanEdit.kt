@@ -1,16 +1,21 @@
-package com.example.roomdata.uicontroller.route
+package com.example.roomdata.view
 
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.roomdata.uicontroller.SiswaTopAppBar
+import com.example.roomdata.uicontroller.route.DestinasiEditSiswa
+import com.example.roomdata.viewmodel.PenyediaViewModel
 import com.example.roomdata.viewmodel.provider.EditViewModel
-import com.example.roomdata.viewmodel.provider.PenyediaViewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
+
 @Composable
 fun EditSiswaScreen(
     navigateBack: () -> Unit,
