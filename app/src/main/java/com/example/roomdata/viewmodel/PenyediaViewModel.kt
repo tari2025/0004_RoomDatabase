@@ -23,3 +23,16 @@ object PenyediaViewModel {
  */
 fun CreationExtras.aplikasiSiswa(): AplikasiSiswa =
     (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as AplikasiSiswa)
+
+initializer {
+    EntryViewModel(aplikasiSiswa().container.repositoriSiswa)
+}
+//edit : tambah initializer untuk detailViewModel dan editViewmodel
+
+initializer {
+   DetailViewModel(savedStateHandle = this.createSavedStateHandle(),
+        aplikasiSiswa().container.repositoriSiswa)
+
+    initializer
+    EditViewModel(savedStateHandle = this.createSavedStateHandle(),
+        aplikasiSiswa().container.repositoriSiswa)
